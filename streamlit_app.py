@@ -1,6 +1,3 @@
-import streamlit as st
-import sklearn, xgboost, pandas, joblib
-
 model = joblib.load("salary_model.joblib")
 
 st.title("💰 Salary Prediction App")
