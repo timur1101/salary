@@ -1,12 +1,19 @@
 import streamlit as st
 import pandas as pd
-import joblib
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.linear_model import LinearRegression
 from xgboost import XGBRegressor
-
+import kagglehub
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.metrics import r2_score, mean_squared_error
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+import joblib, os
+import streamlit as st
 
 # Загружаем модель из файла
 @st.cache_resource
