@@ -1,14 +1,13 @@
 import streamlit as st
-import sklearn, xgboost, pandas, joblib
-import os, joblib, pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from xgboost import XGBRegressor
+import pandas as pd
+import joblib
 
-# Загружаем или обучаем модель
-model = get_model()
+# Загружаем модель из файла
+@st.cache_resource
+def load_model():
+    return joblib.load("model.pkl")   # убедись, что model.pkl есть в репозитории
+
+model = load_model()
 
 # Интерфейс Streamlit
 st.title("💰 Salary Prediction App")
@@ -38,4 +37,3 @@ input_data = pd.DataFrame([{
 
 prediction = model.predict(input_data)[0]
 st.success(f"Предсказанная зарплата: ${prediction:,.0f}")
-
