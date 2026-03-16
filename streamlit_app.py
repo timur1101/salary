@@ -1,12 +1,11 @@
 import streamlit as st
 import pandas as pd
 import joblib
-
+from xgboost import XGBRegressor
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.linear_model import LinearRegression
-from xgboost import XGBRegressor
 
 @st.cache_resource
 def load_model():
