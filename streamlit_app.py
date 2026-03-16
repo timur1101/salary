@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
 import joblib
 
 from sklearn.pipeline import Pipeline
@@ -9,16 +8,15 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.linear_model import LinearRegression
 from xgboost import XGBRegressor
 
-# Загружаем модель из файла
 @st.cache_resource
 def load_model():
     return joblib.load("salary_model.joblib")
 
 model = load_model()
 
-# Интерфейс Streamlit
 st.title("💰 Salary Prediction App")
 
+# Ввод данных
 experience_years = st.number_input("Years of Experience", value=5)
 skills_count = st.number_input("Number of Skills", value=3)
 certifications = st.number_input("Certifications", value=1)
