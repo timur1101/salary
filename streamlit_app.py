@@ -5,7 +5,7 @@ import joblib
 # Загружаем модель из файла
 @st.cache_resource
 def load_model():
-    return joblib.load("model.pkl")   # убедись, что model.pkl есть в репозитории
+    return joblib.load("salary_model.joblib")
 
 model = load_model()
 
